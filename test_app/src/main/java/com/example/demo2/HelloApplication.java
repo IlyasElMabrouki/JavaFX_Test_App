@@ -1,7 +1,9 @@
 package com.example.demo2;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
@@ -12,17 +14,9 @@ import java.io.IOException;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        Group group = new Group();
-        Scene scene = new Scene(group, 600, 600, Color.BLUEVIOLET);
-
-        Text text = new Text();
-        text.setText("ILYAS EL MABROUKI");
-        text.setX(300);
-        text.setY(300);
-        group.getChildren().add(text);
-
+        Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
         stage.setTitle("Hello!");
-        stage.setScene(scene);
+        stage.setScene(new Scene(root, 600, 600, Color.BLUEVIOLET));
         stage.show();
     }
 
